@@ -2,15 +2,22 @@ package io.helyx.webservices.models;
 
 public class Author {
 	
+	private int id;
 	private String firstName;
 	private String lastName;
-	private String[] booksIds;
 	
-	public Author(String firstName, String lastName, String[] booksIds) {
+	public Author(String firstName, String lastName) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.booksIds = booksIds;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getFirstName() {
@@ -28,15 +35,4 @@ public class Author {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-
-	public String[] getBooksIds() {
-		return booksIds;
-	}
-
-	public void setBooksIds(String[] booksIds) {
-		this.booksIds = booksIds;
-	}
-	
-	
-	
 }

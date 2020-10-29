@@ -26,7 +26,6 @@ public class AuthorService implements ICrudService<Author>{
 
 	public void delete(Long id) {
 		// TODO Auto-generated method stub
-		
 	}
 
 }
