@@ -1,6 +1,6 @@
-package webservices.database;
+package io.helyx.webserviceserver.database;
 
-import webservices.database.requests.TableRequests;
+import io.helyx.webserviceserver.database.requests.TableRequests;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

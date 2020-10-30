@@ -1,7 +1,7 @@
-package webservices;
+package io.helyx.webserviceserver;
 
-import webservices.database.PostgreSQLJDBC;
-import webservices.services.AuthorService;
+import io.helyx.webserviceserver.services.AuthorService;
+import io.helyx.webserviceserver.database.PostgreSQLJDBC;
 
 import javax.xml.ws.Endpoint;
 
@@ -13,7 +13,6 @@ public class Main {
 
 		Endpoint.publish("http://localhost:9998/ws/author", new AuthorService());
 
-//
 //		AuthorController authorController = new AuthorController();
 //		Author author = new Author("Corentin", "Dupont");
 //

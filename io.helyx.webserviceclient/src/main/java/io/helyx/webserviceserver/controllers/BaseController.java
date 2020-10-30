@@ -1,7 +1,7 @@
-package webservices.controllers;
+package io.helyx.webserviceserver.controllers;
 
-import webservices.database.PostgreSQLJDBC;
-import webservices.models.Author;
+import io.helyx.webserviceserver.database.PostgreSQLJDBC;
+import io.helyx.webserviceserver.models.Author;
 
 import java.sql.Connection;
 import java.sql.SQLException;

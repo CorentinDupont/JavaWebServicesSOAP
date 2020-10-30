@@ -1,4 +1,4 @@
-package webservices.services;
+package io.helyx.webserviceserver;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;
@@ -9,20 +9,8 @@ import javax.jws.soap.SOAPBinding.Use;
 
 @WebService
 @SOAPBinding(style=Style.RPC, use=Use.LITERAL)
-public interface ICrudService<T> {
-	
-//	@WebMethod
-//	T readAll();
+public interface IHelloWorld {
 	
 	@WebMethod
-	T create(T object);
-	
-//	@WebMethod
-//	T read(Long id);
-//
-//	@WebMethod
-//	T update(Long id);
-//
-//	@WebMethod
-//	void delete(Long id);
+	String getHelloWorldAsString(String name);
 }

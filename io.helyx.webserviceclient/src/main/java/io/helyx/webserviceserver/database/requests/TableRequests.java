@@ -1,4 +1,4 @@
-package webservices.database.requests;
+package io.helyx.webserviceserver.database.requests;
 
 public class TableRequests {
 	

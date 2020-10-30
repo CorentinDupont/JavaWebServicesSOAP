@@ -1,6 +1,6 @@
-package webservices.controllers;
+package io.helyx.webserviceserver.controllers;
 
-import webservices.models.Author;
+import io.helyx.webserviceserver.models.Author;
 
 import java.sql.SQLException;
 

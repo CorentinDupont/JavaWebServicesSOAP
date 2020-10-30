@@ -1,7 +1,7 @@
-package webservices.controllers;
+package io.helyx.webserviceserver.controllers;
 
-import webservices.database.requests.AuthorRequests;
-import webservices.models.Author;
+import io.helyx.webserviceserver.database.requests.AuthorRequests;
+import io.helyx.webserviceserver.models.Author;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

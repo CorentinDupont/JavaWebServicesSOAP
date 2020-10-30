@@ -1,10 +1,10 @@
-package webservices.services;
+package io.helyx.webserviceserver.services;
 
-import webservices.models.Author;
+import io.helyx.webserviceserver.models.Author;
 
 import javax.jws.WebService;
 
-@WebService(endpointInterface="io.helyx.webservices.services.AuthorService")
+@WebService(endpointInterface="io.helyx.webserviceserver.services.AuthorService")
 public class AuthorService implements IAuthorService {
 
 //	@WebMethod(operationName = "readAllAuthor")

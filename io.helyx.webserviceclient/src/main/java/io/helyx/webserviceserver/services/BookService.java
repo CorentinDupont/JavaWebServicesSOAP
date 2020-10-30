@@ -1,4 +1,4 @@
-package webservices.services;
+package io.helyx.webserviceserver.services;
 
 import javax.jws.WebService;
 

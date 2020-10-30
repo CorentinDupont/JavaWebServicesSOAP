@@ -1,7 +1,7 @@
 package io.helyx.webserviceclient;
 
-import webservices.models.Author;
-import webservices.services.IAuthorService;
+import io.helyx.webserviceserver.models.Author;
+import io.helyx.webserviceserver.services.IAuthorService;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -14,7 +14,7 @@ public class HelloWorldClient {
 	public static void main(String[] args) {
 		try {
 			URL url = new URL("http://localhost:9998/ws/author");
-			QName qname = new QName("http://services.webservices.helyx.io/", "AuthorServiceService");
+			QName qname = new QName("http://services.webserviceserver.helyx.io/", "AuthorServiceService");
 			Service service = Service.create(url, qname);
 			IAuthorService authorService = service.getPort(IAuthorService.class);
 			System.out.println(authorService.create(new Author("Corentin", "Dupont")));
