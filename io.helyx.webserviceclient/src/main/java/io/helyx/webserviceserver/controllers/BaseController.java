@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public abstract class BaseController<T> implements ICrudController<T> {
 	
-	public Connection dbConnection = null;
+	public Connection dbConnection;
 	
 	public BaseController() {
 		this.dbConnection = PostgreSQLJDBC.getInstance().connection;

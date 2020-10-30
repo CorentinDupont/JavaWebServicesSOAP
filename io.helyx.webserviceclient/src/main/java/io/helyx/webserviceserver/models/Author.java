@@ -1,13 +1,17 @@
 package io.helyx.webserviceserver.models;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Author {
 	
 	private int id;
 	private String firstName;
 	private String lastName;
+
+	public Author() {}
 	
 	public Author(String firstName, String lastName) {
-		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 	}
