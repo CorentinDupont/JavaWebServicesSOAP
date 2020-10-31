@@ -21,11 +21,16 @@ public class HelloWorldClient {
 		QName qname = new QName("http://services.webserviceserver.helyx.io/", "AuthorServiceService");
 		Service service = Service.create(url, qname);
 		IAuthorService authorService = service.getPort(IAuthorService.class);
-		System.out.println(authorService.create(new Author("Corentin", "Dupont")).getId());
+
+		Author author = new Author("Corentin", "Dupond");
+		System.out.println(authorService.create(author).getId());
+
+		author.setLastName("Dupont");
+		authorService.update(author.getId(), author);	
 
 		Author[] authors = authorService.readAll();
 		for( Author authorTemp : authors ) {
-			System.out.println(authorTemp.getId() + ": " + authorTemp.getFirstName());
+			System.out.println(authorTemp.getId() + ": " + authorTemp.getFirstName() + " " + author.getLastName());
 		}
 	}
 }

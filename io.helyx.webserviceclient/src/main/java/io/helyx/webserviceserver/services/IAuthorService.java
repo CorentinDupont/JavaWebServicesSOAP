@@ -16,7 +16,8 @@ public interface IAuthorService {
     Author[] readAll() throws SQLException;
 
     @WebMethod
-    Author create(@WebParam(name="Author") Author object) throws SQLException;
+    Author create(@WebParam(name="Author") Author author) throws SQLException;
 
-
+    @WebMethod
+    Author update(@WebParam(name="Id") int id, @WebParam(name="Author") Author author) throws SQLException;
 }

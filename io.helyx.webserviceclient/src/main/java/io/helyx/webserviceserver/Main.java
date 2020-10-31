@@ -1,7 +1,5 @@
 package io.helyx.webserviceserver;
 
-import io.helyx.webserviceserver.controllers.AuthorController;
-import io.helyx.webserviceserver.models.Author;
 import io.helyx.webserviceserver.services.AuthorService;
 import io.helyx.webserviceserver.database.PostgreSQLJDBC;
 

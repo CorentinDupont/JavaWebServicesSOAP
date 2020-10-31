@@ -28,10 +28,9 @@ public class AuthorService implements IAuthorService {
 //	}
 //
 //	@WebMethod(operationName = "updateAuthor")
-//	public Author update(Long id) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
+	public Author update(int id, Author author) throws SQLException {
+		return authorController.update(id, author);
+	}
 //
 //	@WebMethod(operationName = "deleteAuthor")
 //	public void delete(Long id) {

@@ -56,9 +56,16 @@ public class AuthorController extends BaseController<Author> {
 		return null;
 	}
 
-	public Author update(int id, Author author) {
-		// TODO Auto-generated method stub
-		return null;
+	public Author update(int id, Author author) throws SQLException {
+		PreparedStatement pst = this.dbConnection.prepareStatement(AuthorRequests.UPDATE_ONE);
+
+		pst.setString(1, author.getFirstName());
+		pst.setString(2, author.getLastName());
+		pst.setInt(3, id);
+		pst.executeUpdate();
+		pst.close();
+
+		return author;
 	}
 
 	public void delete(int id) {
