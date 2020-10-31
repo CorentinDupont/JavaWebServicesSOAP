@@ -14,18 +14,18 @@ public class Main {
 		PostgreSQLJDBC pgsj = PostgreSQLJDBC.getInstance();
 		pgsj.init();
 
-//		Endpoint.publish("http://localhost:9998/ws/author", new AuthorService());
+		Endpoint.publish("http://localhost:9998/ws/author", new AuthorService());
 
-		AuthorController authorController = new AuthorController();
-		Author author = new Author("Corentin", "Dupont");
-
-		authorController.create(author);
-
-		Author[] authors = authorController.readAll();
-
-		for( Author authorTemp : authors ) {
-			System.out.println(authorTemp.getId() + ": " + authorTemp.getFirstName());
-		}
+//		AuthorController authorController = new AuthorController();
+//		Author author = new Author("Corentin", "Dupont");
+//
+//		authorController.create(author);
+//
+//		Author[] authors = authorController.readAll();
+//
+//		for( Author authorTemp : authors ) {
+//			System.out.println(authorTemp.getId() + ": " + authorTemp.getFirstName());
+//		}
 	}
 
 }

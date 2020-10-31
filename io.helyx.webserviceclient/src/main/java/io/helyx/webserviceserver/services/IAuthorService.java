@@ -13,5 +13,10 @@ import java.sql.SQLException;
 public interface IAuthorService {
 
     @WebMethod
+    Author[] readAll() throws SQLException;
+
+    @WebMethod
     Author create(@WebParam(name="Author") Author object) throws SQLException;
+
+
 }

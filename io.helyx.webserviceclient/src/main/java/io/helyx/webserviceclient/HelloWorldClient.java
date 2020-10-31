@@ -14,21 +14,18 @@ import javax.xml.ws.Service;
 
 public class HelloWorldClient {
 	
-	public static void main(String[] args) {
-		try {
-			JAXBContext context = JAXBContext.newInstance(Author.class);
-			URL url = new URL("http://localhost:9998/ws/author");
-			QName qname = new QName("http://services.webserviceserver.helyx.io/", "AuthorServiceService");
-			Service service = Service.create(url, qname);
-			IAuthorService authorService = service.getPort(IAuthorService.class);
-			System.out.println(authorService.create(new Author("Corentin", "Dupont")).getId());
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (JAXBException e) {
-			e.printStackTrace();
-		} catch (SQLException throwables) {
-			throwables.printStackTrace();
+	public static void main(String[] args) throws JAXBException, SQLException, MalformedURLException {
+
+		JAXBContext context = JAXBContext.newInstance(Author.class);
+		URL url = new URL("http://localhost:9998/ws/author");
+		QName qname = new QName("http://services.webserviceserver.helyx.io/", "AuthorServiceService");
+		Service service = Service.create(url, qname);
+		IAuthorService authorService = service.getPort(IAuthorService.class);
+		System.out.println(authorService.create(new Author("Corentin", "Dupont")).getId());
+
+		Author[] authors = authorService.readAll();
+		for( Author authorTemp : authors ) {
+			System.out.println(authorTemp.getId() + ": " + authorTemp.getFirstName());
 		}
 	}
 }
