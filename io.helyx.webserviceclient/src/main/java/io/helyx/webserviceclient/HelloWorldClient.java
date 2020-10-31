@@ -5,6 +5,7 @@ import io.helyx.webserviceserver.services.IAuthorService;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.sql.SQLException;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -20,12 +21,14 @@ public class HelloWorldClient {
 			QName qname = new QName("http://services.webserviceserver.helyx.io/", "AuthorServiceService");
 			Service service = Service.create(url, qname);
 			IAuthorService authorService = service.getPort(IAuthorService.class);
-			System.out.println(authorService.create(new Author("Corentin", "Dupont")).getFirstName());
+			System.out.println(authorService.create(new Author("Corentin", "Dupont")).getId());
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (JAXBException e) {
 			e.printStackTrace();
+		} catch (SQLException throwables) {
+			throwables.printStackTrace();
 		}
 	}
 }

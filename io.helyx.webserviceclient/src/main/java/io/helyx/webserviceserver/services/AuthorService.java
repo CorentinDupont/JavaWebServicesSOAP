@@ -1,22 +1,24 @@
 package io.helyx.webserviceserver.services;
 
+import io.helyx.webserviceserver.controllers.AuthorController;
 import io.helyx.webserviceserver.models.Author;
 
 import javax.jws.WebParam;
 import javax.jws.WebService;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 @WebService(endpointInterface="io.helyx.webserviceserver.services.IAuthorService")
 public class AuthorService implements IAuthorService {
 
-//	@WebMethod(operationName = "readAllAuthor")
-//	public Author readAll() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
+	AuthorController authorController = new AuthorController();
 
-	public Author create(Author object) {
-		object.setFirstName("coco");
-		return object;
+	public Author[] readAll() throws SQLException {
+		return this.authorController.readAll();
+	}
+
+	public Author create(Author author) throws SQLException {
+		return this.authorController.create(author);
 	}
 
 //	@WebMethod(operationName = "readAuthor")

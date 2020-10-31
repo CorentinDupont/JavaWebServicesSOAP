@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class AuthorController extends BaseController<Author> {
 	
@@ -14,8 +15,22 @@ public class AuthorController extends BaseController<Author> {
 		super();
 	}
 
-	public Author readAll() {
-		return null;
+	public Author[] readAll() throws SQLException {
+		Statement statement = this.dbConnection.createStatement();
+		ResultSet rs = statement.executeQuery(AuthorRequests.READ_ALL);
+		ArrayList<Author> authors = new ArrayList<Author>();
+
+		while (rs.next()) {
+			Author author = new Author(
+				rs.getInt(rs.findColumn("id")),
+				rs.getString(rs.findColumn("firstName")),
+				rs.getString(rs.findColumn("lastName"))
+			);
+			authors.add(author);
+		}
+
+		Author[] authorsArray = new Author[authors.size()];
+		return authors.toArray(authorsArray);
 	}
 
 	public Author create(Author author) throws SQLException {

@@ -6,11 +6,12 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
+import java.sql.SQLException;
 
 @WebService
 @SOAPBinding(style=SOAPBinding.Style.DOCUMENT, use=SOAPBinding.Use.LITERAL)
 public interface IAuthorService {
 
     @WebMethod
-    Author create(@WebParam(name="Author") Author object);
+    Author create(@WebParam(name="Author") Author object) throws SQLException;
 }
