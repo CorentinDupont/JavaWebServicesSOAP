@@ -38,5 +38,8 @@ public class HelloWorldClient {
 		for( Author authorTemp : authors ) {
 			System.out.println(authorTemp.getId() + ": " + authorTemp.getFirstName() + " " + authorTemp.getLastName());
 		}
+
+		Author retrieviedAuthor = authorService.read(1);
+		System.out.println(retrieviedAuthor.toString());
 	}
 }

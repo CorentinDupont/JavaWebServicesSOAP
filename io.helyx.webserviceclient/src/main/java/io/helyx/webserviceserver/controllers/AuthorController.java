@@ -33,6 +33,23 @@ public class AuthorController extends BaseController<Author> {
 		return authors.toArray(authorsArray);
 	}
 
+	public Author read(int id) throws SQLException {
+		PreparedStatement pst = this.dbConnection.prepareStatement(AuthorRequests.READ_ONE);
+		pst.setInt(1, id);
+		ResultSet rs = pst.executeQuery();
+
+		Author author = null;
+		if (rs.next()) {
+			author = new Author(
+				rs.getInt(rs.findColumn("id")),
+				rs.getString(rs.findColumn("firstName")),
+				rs.getString(rs.findColumn("lastName"))
+			);
+		}
+
+		return author;
+	}
+
 	public Author create(Author author) throws SQLException {
 		PreparedStatement pst = this.dbConnection.prepareStatement(
 			AuthorRequests.CREATE_ONE,
@@ -49,11 +66,6 @@ public class AuthorController extends BaseController<Author> {
 		pst.close();
 
 		return author;
-	}
-
-	public Author read(int id) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	public Author update(int id, Author author) throws SQLException {
