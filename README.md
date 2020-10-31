@@ -25,12 +25,14 @@ Le client possède une seule classe `Client`, pour lancer le programme. Il perme
 
 ## Fonctionnalités
 
-✅ Création des tables `author` et `book`
-✅ CRUD sur des auteurs
-❌ CRUD sur des livres
-❌ Retourner les auteurs directement avec les livres
+Serveur : 
+- ✅ Création des tables `author` et `book`
+- ✅ CRUD sur des auteurs
+- ❌ CRUD sur des livres
+- ❌ Retourner les auteurs directement avec les livres
 
-✅ Utilisation du serveur dans un client Java
-❌ CLI pour gérer les auteurs
-❌ CLI pour gérer les livres
+Client : 
+- ✅ Utilisation du serveur dans un client Java
+- ❌ CLI pour gérer les auteurs
+- ❌ CLI pour gérer les livres
 
