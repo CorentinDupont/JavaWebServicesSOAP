@@ -20,4 +20,7 @@ public interface IAuthorService {
 
     @WebMethod
     Author update(@WebParam(name="Id") int id, @WebParam(name="Author") Author author) throws SQLException;
+
+    @WebMethod
+    void delete(@WebParam(name="Id") int id) throws SQLException;
 }

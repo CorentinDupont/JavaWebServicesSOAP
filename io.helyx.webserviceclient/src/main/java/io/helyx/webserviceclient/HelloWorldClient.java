@@ -23,14 +23,20 @@ public class HelloWorldClient {
 		IAuthorService authorService = service.getPort(IAuthorService.class);
 
 		Author author = new Author("Corentin", "Dupond");
-		System.out.println(authorService.create(author).getId());
+		Author author2 = new Author("Dany", "Corbineau");
+		Author author3 = new Author("Pierre", "Chene");
+		author = authorService.create(author);
+		author2 = authorService.create(author2);
+		author3 = authorService.create(author3);
 
 		author.setLastName("Dupont");
-		authorService.update(author.getId(), author);	
+		authorService.update(author.getId(), author);
+
+		authorService.delete(author3.getId());
 
 		Author[] authors = authorService.readAll();
 		for( Author authorTemp : authors ) {
-			System.out.println(authorTemp.getId() + ": " + authorTemp.getFirstName() + " " + author.getLastName());
+			System.out.println(authorTemp.getId() + ": " + authorTemp.getFirstName() + " " + authorTemp.getLastName());
 		}
 	}
 }

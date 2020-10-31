@@ -68,8 +68,12 @@ public class AuthorController extends BaseController<Author> {
 		return author;
 	}
 
-	public void delete(int id) {
-		// TODO Auto-generated method stub
+	public void delete(int id) throws SQLException {
+		PreparedStatement pst = this.dbConnection.prepareStatement(AuthorRequests.DELETE_ONE);
+
+		pst.setInt(1, id);
+		pst.executeUpdate();
+		pst.close();
 	}
 	
 }
