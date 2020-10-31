@@ -1,26 +1,44 @@
 package io.helyx.webserviceclient;
 
+import io.helyx.webserviceserver.models.Author;
+import io.helyx.webserviceserver.services.IAuthorService;
+
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.sql.SQLException;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
 
-import io.helyx.webservices.IHelloWorld;
-
 public class HelloWorldClient {
 	
-	public static void main(String[] args) {
-		try {
-			URL url = new URL("http://localhost:9998/ws/hello");
-			QName qname = new QName("http://webservices.helyx.io/", "HelloWorldService");
-			Service service = Service.create(url, qname);
-			IHelloWorld helloWorld = service.getPort(IHelloWorld.class);
-			System.out.println(helloWorld.getHelloWorldAsString("Corentin"));
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	public static void main(String[] args) throws SQLException, MalformedURLException {
+
+		URL url = new URL("http://localhost:9998/ws/author");
+		QName qname = new QName("http://services.webserviceserver.helyx.io/", "AuthorServiceService");
+		Service service = Service.create(url, qname);
+		IAuthorService authorService = service.getPort(IAuthorService.class);
+
+		Author author = new Author("Corentin", "Dupond");
+		Author author2 = new Author("Dany", "Corbineau");
+		Author author3 = new Author("Pierre", "Chene");
+		author = authorService.create(author);
+		author2 = authorService.create(author2);
+		author3 = authorService.create(author3);
+
+		author.setLastName("Dupont");
+		authorService.update(author.getId(), author);
+
+		authorService.delete(author3.getId());
+
+		Author[] authors = authorService.readAll();
+		for( Author authorTemp : authors ) {
+			System.out.println(authorTemp.getId() + ": " + authorTemp.getFirstName() + " " + authorTemp.getLastName());
 		}
-		
+
+		Author retrieviedAuthor = authorService.read(1);
+		System.out.println(retrieviedAuthor.toString());
 	}
 }

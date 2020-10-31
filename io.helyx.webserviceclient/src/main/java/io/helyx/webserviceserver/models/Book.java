@@ -1,4 +1,4 @@
-package io.helyx.webservices.models;
+package io.helyx.webserviceserver.models;
 
 public class Book {
 	
