@@ -14,9 +14,8 @@ import javax.xml.ws.Service;
 
 public class HelloWorldClient {
 	
-	public static void main(String[] args) throws JAXBException, SQLException, MalformedURLException {
+	public static void main(String[] args) throws SQLException, MalformedURLException {
 
-		JAXBContext context = JAXBContext.newInstance(Author.class);
 		URL url = new URL("http://localhost:9998/ws/author");
 		QName qname = new QName("http://services.webserviceserver.helyx.io/", "AuthorServiceService");
 		Service service = Service.create(url, qname);
